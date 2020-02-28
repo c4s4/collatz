@@ -4,19 +4,29 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
-func collatz(n, p int) {
-	fmt.Printf("%d ", n)
+func collatz(n int, l []int) []int {
+	l = append(l, n)
 	if n == 1 {
-		fmt.Printf("(%d)", p)
-		return
+		return l
 	}
 	if n%2 == 0 {
-		collatz(n/2, p+1)
+		return collatz(n/2, l)
 	} else {
-		collatz(n*3+1, p+1)
+		return collatz(n*3+1, l)
 	}
+}
+
+func max(l []int) int {
+	m := 0
+	for _, i := range l {
+		if i > m {
+			m = i
+		}
+	}
+	return m
 }
 
 func main() {
@@ -34,7 +44,12 @@ func main() {
 			fmt.Printf("%d is not a positive integer", n)
 			os.Exit(1)
 		}
-		collatz(n, 0)
-		fmt.Println()
+		list := collatz(n, nil)
+		strs := make([]string, len(list))
+		for i, v := range list {
+			strs[i] = strconv.Itoa(v)
+		}
+		fmt.Printf(strings.Join(strs, " "))
+		fmt.Printf(" (%d) [%d]\n", len(list)-1, max(list))
 	}
 }
