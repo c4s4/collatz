@@ -6,17 +6,16 @@ import (
 	"strconv"
 )
 
-func collatz(n int) {
-	fmt.Print(n)
+func collatz(n, p int) {
+	fmt.Printf("%d ", n)
 	if n == 1 {
+		fmt.Printf("(%d)", p)
 		return
 	}
 	if n%2 == 0 {
-		fmt.Print(" ")
-		collatz(n / 2)
+		collatz(n/2, p+1)
 	} else {
-		fmt.Print(" ")
-		collatz(n*3 + 1)
+		collatz(n*3+1, p+1)
 	}
 }
 
@@ -35,7 +34,7 @@ func main() {
 			fmt.Printf("%d is not a positive integer", n)
 			os.Exit(1)
 		}
-		collatz(n)
+		collatz(n, 0)
 		fmt.Println()
 	}
 }
