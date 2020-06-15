@@ -9,13 +9,13 @@ Print Collatz series for given integers.
 Unix users may download and install latest *collatz* release with command:
 
 ```bash
-sh -c "$(curl http://sweetohm.net/dist/collatz/install)"
+sh -c "$(curl https://sweetohm.net/dist/collatz/install)"
 ```
 
 If *curl* is not installed on you system, you might run:
 
 ```bash
-sh -c "$(wget -O - http://sweetohm.net/dist/collatz/install)"
+sh -c "$(wget -O - https://sweetohm.net/dist/collatz/install)"
 ```
 
 **Note:** Some directories are protected, even as *root*, on **MacOSX** (since *El Capitan* release), thus you can't install *collatz* in */usr/bin* for instance.
