@@ -55,6 +55,6 @@ func main() {
 			os.Exit(1)
 		}
 		list := collatz(n)
-		fmt.Printf("%s (%d) [%d]\n", listToString(list), len(*list)-1, maxList(list))
+		fmt.Printf("%s (%d) [%d]\n", listToString(list), len(*list), maxList(list))
 	}
 }
